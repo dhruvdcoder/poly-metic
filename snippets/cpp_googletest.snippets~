@@ -1,0 +1,48 @@
+
+snippet gtest
+	/*! @file ${1:`vim_snippets#Filename()`}.cpp 
+	 * @brief Contains the tests for the class ${`vim_snippets#ClassName()`}
+	 */
+	#include "${2:`vim_snippets#GoogleHeaderNameWithRelativePath()`}"
+	#include "../include/Error.h"
+	#include "gtest/gtest.h"
+	#include <fcntl.h> // for open() create() file descriptors
+	#include <unistd.h> // for close() file descriptor
+	#include <cstddef> // for nullptr
+	#include <stdio.h>
+	#include <iostream>
+	namespace{
+	   class ${3:`vim_snippets#GoogleTestName()`} : public ::testing::Test{
+	      public:
+	      
+	      
+		 ${5: }$3(){
+	   
+		 }
+		${6: }virtual ~$3(){
+		    
+		 }
+	      protected:
+	         ${7://}virtual void SetUp() {
+
+	         $7}
+
+	         $7virtual void TearDown() {
+	            
+	         $7}
+
+
+	   };
+
+
+	   TEST_F($3,${4:FirstTest}){
+
+	   }
+
+
+	}
+
+	int main(int argc,char **argv){
+	   ::testing::InitGoogleTest(&argc,argv);
+	   return RUN_ALL_TESTS();
+	}

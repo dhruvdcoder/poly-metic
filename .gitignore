@@ -1,0 +1,8 @@
+bin/*
+obj/*
+# excluding the genareted doc files except the doc.config
+doc/*
+!doc/doc.config
+
+# ignore swap files
+*.swp
