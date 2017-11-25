@@ -1,6 +1,5 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
 
@@ -9,19 +8,18 @@ This README would normally document whatever steps are necessary to get your app
 
 ### How do I get set up? ###
 
-* 
-* Configuration
-* Dependencies : google-test (if you wish to build the tests)
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
+* Setup: 
+1. Clone the repo
+2. Use the Makefile to build
+* Directory structure
+	include/	: The header files
+	src/ 		: The cpp/implementation files
+	doc/		: The doxygen configureation files.
+	bin/		: The files in this directory are ignore by git. Used to keep the executables
+	obj/		: The files in this directory are ignore by git. Used to keep .o and other temporary files
+	snippets/	: Specific vim snippets. Can be ignore if not using vim and snipmate plugin
+* Dependencies : google-test (if you wish to build the tests
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* Please mail me at dhruvdplayer@gmail.com for questions
