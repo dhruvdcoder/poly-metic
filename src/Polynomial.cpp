@@ -52,13 +52,27 @@ Polynomial<FieldT> const & Polynomial<FieldT>::operator=(Polynomial<FieldT> rhs)
 /** 
  * Implemented using copy-and-add in sequence. This is cleaner but a bit inefficient(possibly). Reconsider for performance optimization later. 
  * We cannot use implicit copying by using pass by value becuse RVO will not work on input argument of a function.
+ * \todo Do away with the copying by using better approach.
  */
 template <typename FieldT>
-Polynomial<FieldT> const& Polynomial<FieldT>::operator+=(Polynomial<FieldT> const& p2_copy)
+Polynomial<FieldT> const& Polynomial<FieldT>::operator+=(Polynomial<FieldT> const& p2)
 {
    /* identify the polynomial which has higher degree*/
-   
-   
+   Polynomial<FieldT> const& bigger_polynomial =  p2.size() > this->size() ? p2 : *this;
+   Polynomial<FieldT> const& smaller_polynomial = p2.size() <= this->size() ? p2 : *this;
+   /* copy the bigger polynomial */
+   Polynomial<FieldT> copy_for_swap (bigger_polynomial);
+   /* \todo Coefficient iterator class for Polynomial */
+   auto s_it = smaller_polynomial.m_coefs.begin();
+   auto b_it = copy_for_swap.m_coefs.begin();
+   for( ;s_it != smaller_polynomial.m_coefs.end();) {
+      *b_it+=*s_it;
+      ++s_it;
+      ++b_it;
+   } 
+  /* swap this */
+  swap(*this,copy_for_swap); 
+  return *this;
 }
 
 

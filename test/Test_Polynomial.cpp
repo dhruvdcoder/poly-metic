@@ -94,6 +94,28 @@ namespace{
 
    }
 
+   TEST_F(PolynomialTest,sum_assign_operator){
+      double c0=1,c1=2,c2=3,c3=0;
+      double a0=4,a1=0,a2=6,a3=10;
+      Polynomial<double> fc {c0,c1,c2,c3};
+      Polynomial<double> fa {a0,a1,a2,a3};
+      
+      fc+=fa;
+      ASSERT_EQ(fc.size(),4);
+      ASSERT_EQ(fa.size(),4);
+      
+      ASSERT_DOUBLE_EQ(fc[0],c0+a0);
+      ASSERT_DOUBLE_EQ(fc[1],c1+a1);
+      ASSERT_DOUBLE_EQ(fc[2],c2+a2);
+      ASSERT_DOUBLE_EQ(fc[3],c3+a3);
+      ASSERT_DOUBLE_EQ(fa[0],a0);
+      ASSERT_DOUBLE_EQ(fa[1],a1);
+      ASSERT_DOUBLE_EQ(fa[2],a2);
+      ASSERT_DOUBLE_EQ(fa[3],a3);
+
+
+   }
+
 }
 
 int main(int argc,char **argv){

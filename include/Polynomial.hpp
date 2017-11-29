@@ -23,7 +23,7 @@ public:
    /*********** Constructors **************/
    /** \brief The default constructor to make the class default constructible
     */
-   Polynomial():m_coefs(),m_size(0){trim();}
+   Polynomial():m_coefs(),m_size(0){}
    /** \brief Constructor to accept init list.
     */
    Polynomial(std::initializer_list<FieldT>);
@@ -73,7 +73,7 @@ public:
    size_t size() const {return m_size;}
    
 private:
-   std::list<FieldT> m_coefs; /*!< Member description */
+   std::list<FieldT> m_coefs; /*!< The list of coefficients */
    size_t m_size; /*!< Number of terms in the polynomial */
 
    /*********** Helpers ********/
