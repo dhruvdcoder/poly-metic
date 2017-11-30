@@ -19,6 +19,7 @@
 template <typename FieldT>
 class Polynomial
 {
+
 public:
    /*********** Constructors **************/
    /** \brief The default constructor to make the class default constructible
@@ -29,11 +30,20 @@ public:
    Polynomial(std::initializer_list<FieldT>);
    /** \brief defaulted copy constructor
     */
-   Polynomial(const Polynomial&) = default; // defaulted copy constructor till we figure out the behavior
+   Polynomial(const Polynomial& rhs) 
+      :m_coefs{rhs.m_coefs},m_size{rhs.m_size}
+   {
+      #ifdef VERBOSE
+      std::cout<<"copy constructor Polynomial(const Polynomial&)"<<std::endl;
+      #endif
+   }
    /** \brief Move constructor implemented using swap
     */
    Polynomial(Polynomial&& rhs):Polynomial()
    {
+      #ifdef VERBOSE
+      std::cout<<"move constructor Polynomial(Polynomial&&)"<<std::endl;
+      #endif
       swap(*this,rhs);
    }
    
@@ -61,12 +71,47 @@ public:
    /** \brief The assignemnt operator
     *  \param [in] RHS for the assignment
     */
-   Polynomial const& operator=(Polynomial rhs);
-   
+   Polynomial const& operator=(const Polynomial& rhs);
+    /** \brief The move assignemnt operator
+    *  \param [in] RHS for the assignment
+    */
+   Polynomial const& operator=(Polynomial&& rhs);
+
+  /** \brief The unary (-) operator */
+   friend Polynomial operator-(Polynomial const& rhs) {
+      #ifdef VERBOSE
+      std::cout<<"friend -(const &)"<<std::endl;
+      #endif
+      Polynomial<FieldT> temp (rhs);
+      temp.minus();
+      return temp;
+   }
+   friend Polynomial operator-(Polynomial&& temp)  {
+      #ifdef VERBOSE
+      std::cout<<"friend -(&&)"<<std::endl;
+      #endif
+      temp.minus();
+      return std::move(temp); /** \todo Find out why the move() is needed. RVO does not work on it own but has to be forced using move() here */
+   }
    /** \brief The += operator for polynomials
     */
    const Polynomial& operator+=(Polynomial const& p2) ;
-   
+   /** \brief The += operator for polynomials
+    */
+   const Polynomial& operator+=(Polynomial&& p2) ;
+   /** \brief The -= operator for polynomials
+    */
+   const Polynomial& operator-=(Polynomial const& p2) ;
+   /** \brief The -= operator for polynomials using rvalue ref
+    */
+   const Polynomial& operator-=(Polynomial&& p2) ;
+
+   /** \brief + operator
+    */
+   Polynomial operator+(Polynomial p2);
+   /** \brief + operator
+    */
+   Polynomial operator-(Polynomial p2);
 public: 
    /********** getters **********/
    size_t size() {return m_size;}
@@ -80,11 +125,39 @@ private:
    /** \brief Use to maintain the invariant 1
     */
    void trim();
-   
+
+
+   /** \brief Flip the sign of all coefs */
+   Polynomial& minus();
+
 #ifdef INTRUSIVE_TESTS
 public:
+   friend class PolynomialTest;
    FRIEND_TEST(PolynomialTest,helper_trim);
+   FRIEND_TEST(PolynomialTest,helper_minus);
 #endif
-};
 
+};
+//namespace PolynomialNS {
+//   /*! \brief Brief function description here
+//    * \param lhs lhs+=rhs
+//    * \param rhs lhs+=rhs
+//    */
+//   template <typename FieldT>
+//   FieldT& add_assign(FieldT& lhs,const FieldT& rhs) {
+//      return lhs+=rhs;
+//   }
+//   /*! \brief Brief function description here
+//    * \param lhs lhs-=rhs
+//    * \param rhs lhs-=rhs
+//    */
+//   template <typename FieldT>
+//   FieldT& subtract_assign(FieldT& lhs,const FieldT& rhs) {
+//      return lhs-=rhs;
+//   }
+//}
+template <typename T>
+T minus(T v) {
+   return -v;
+}
 #endif //_POLYNOMIAL_HPP_

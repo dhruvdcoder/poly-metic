@@ -14,6 +14,10 @@ BINDIR=bin
 ifeq ($(strip $(T)),ON)
 CXXFLAGS += -D INTRUSIVE_TESTS
 endif
+# Printing calls 
+ifeq ($(strip $(V)),ON)
+CXXFLAGS += -D VERBOSE
+endif
 .PHONY: Test_Polynomial
 Test_Polynomial : $(BINDIR)/Test_Polynomial
 ## test executables rules

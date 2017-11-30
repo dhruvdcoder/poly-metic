@@ -3,6 +3,9 @@
 #include "../include/Polynomial.hpp"
 #include <stdexcept>
 #include <iterator>
+#ifdef VERBOSE
+#include <iostream>
+#endif
 /** 
  *  \param in_list Initializer list of coefficients. Starting with the x^0
  */
@@ -40,14 +43,37 @@ FieldT& Polynomial<FieldT>::operator[] (size_t i)
  *  and the copy operation become implicit.
  */
 template <typename FieldT>
-Polynomial<FieldT> const & Polynomial<FieldT>::operator=(Polynomial<FieldT> rhs)
+Polynomial<FieldT> const & Polynomial<FieldT>::operator=(const Polynomial<FieldT>& rhs_ref)
 {
+   #ifdef VERBOSE
+   std::cout<<"=(&)"<<std::endl;
+   #endif
    /* Provide self assignment protection if the use cases demand. Skipping for now.*/
+   Polynomial<FieldT> rhs (rhs_ref);
    using std::swap; // Just incase we need ADL
    swap(*this,rhs);
    return *this;
   
 }
+/**
+ *  
+ *  */
+template <typename FieldT>
+Polynomial<FieldT> const& Polynomial<FieldT>::operator=(Polynomial<FieldT>&& rhs)
+{
+   /* Provide self assignment protection if the use cases demand. Skipping for now.*/
+   #ifdef VERBOSE
+   std::cout<<"=(&&)"<<std::endl;
+   #endif
+
+   using std::swap; // Just incase we need ADL
+   swap(*this,rhs);
+   return *this;
+  
+}
+
+
+
 
 /** 
  * Implemented using copy-and-add in sequence. This is cleaner but a bit inefficient(possibly). Reconsider for performance optimization later. 
@@ -57,27 +83,101 @@ Polynomial<FieldT> const & Polynomial<FieldT>::operator=(Polynomial<FieldT> rhs)
 template <typename FieldT>
 Polynomial<FieldT> const& Polynomial<FieldT>::operator+=(Polynomial<FieldT> const& p2)
 {
+   #ifdef VERBOSE
+   std::cout<<"+=(&) "<<std::endl;
+   #endif
    /* identify the polynomial which has higher degree*/
    Polynomial<FieldT> const& bigger_polynomial =  p2.size() > this->size() ? p2 : *this;
    Polynomial<FieldT> const& smaller_polynomial = p2.size() <= this->size() ? p2 : *this;
    /* copy the bigger polynomial */
-   Polynomial<FieldT> copy_for_swap (bigger_polynomial);
+   Polynomial<FieldT> copy_for_swap(bigger_polynomial);
    /* \todo Coefficient iterator class for Polynomial */
    auto s_it = smaller_polynomial.m_coefs.begin();
    auto b_it = copy_for_swap.m_coefs.begin();
    for( ;s_it != smaller_polynomial.m_coefs.end();) {
-      *b_it+=*s_it;
+      *b_it+=*s_it; 
       ++s_it;
       ++b_it;
    } 
+   /* ensure that the invariant is maintained */
+   copy_for_swap.trim();
   /* swap this */
   swap(*this,copy_for_swap); 
   return *this;
 }
+/**
+ */
+template <typename FieldT>
+Polynomial<FieldT> const& Polynomial<FieldT>::operator+=(Polynomial<FieldT>&& p2)
+{
+   #ifdef VERBOSE
+   std::cout<<"+=(&&) "<<std::endl;
+   #endif
+   /* identify the polynomial which has higher degree*/
+   Polynomial<FieldT>& bigger_polynomial =  p2.size() > this->size() ? p2 : *this;
+   Polynomial<FieldT> const& smaller_polynomial = p2.size() <= this->size() ? p2 : *this;
+   /* \todo Coefficient iterator class for Polynomial */
+   auto s_it = smaller_polynomial.m_coefs.begin();
+   auto b_it = bigger_polynomial.m_coefs.begin();
+   for( ;s_it != smaller_polynomial.m_coefs.end();) {
+      *b_it+=*s_it; 
+      ++s_it;
+      ++b_it;
+   } 
+   /* ensure that the invariant is maintained */
+   bigger_polynomial.trim();
+  /* swap this */
+  swap(*this,bigger_polynomial); 
+  return *this;
+}
+/** 
+ * 
+ * \todo Do away with the copying by using better approach.
+ */
+template <typename FieldT>
+Polynomial<FieldT> const& Polynomial<FieldT>::operator-=(Polynomial<FieldT> const& p2)
+{
+   #ifdef VERBOSE
+   std::cout<<"-=(&) "<<std::endl;
+   #endif
+   return (*this+=-p2);
+}
 
+/** 
+ */
+template <typename FieldT>
+Polynomial<FieldT> const& Polynomial<FieldT>::operator-=(Polynomial<FieldT>&& p2)
+{
+   #ifdef VERBOSE
+   std::cout<<"-=(&&) "<<std::endl;
+   #endif
 
+   return (*this+=-std::move(p2));
+}
 
-
+/**
+ */
+template <typename FieldT>
+Polynomial<FieldT> Polynomial<FieldT>::operator+(Polynomial<FieldT> p2) 
+{
+   #ifdef VERBOSE
+   std::cout<<"this+(value) "<<std::endl;
+   #endif
+   p2+=*this;
+   return std::move(p2);
+}
+/**
+ */
+template <typename FieldT>
+Polynomial<FieldT> Polynomial<FieldT>::operator-(Polynomial<FieldT> p2) 
+{
+   #ifdef VERBOSE
+   std::cout<<"this-(value) "<<std::endl;
+   #endif
+   Polynomial<FieldT> temp (-std::move(p2));
+   temp+=*this;
+   return std::move(temp);
+}
 /******************* Helpers **********************/
 template <typename FieldT>
 void Polynomial<FieldT>::trim() 
@@ -94,8 +194,18 @@ void Polynomial<FieldT>::trim()
       }
    }
 }
+
+template <typename FieldT>
+Polynomial<FieldT>& Polynomial<FieldT>::minus() {
+   for(auto& coef : m_coefs) {
+      coef = ::minus(coef);
+   }
+   return *this;
+}
 /* Explicit instantiation */
 template 
 class Polynomial<double>;
+
+
 
 
