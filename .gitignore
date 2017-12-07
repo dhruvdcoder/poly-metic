@@ -1,5 +1,7 @@
 bin/*
+!bin/.dummy
 obj/*
+!obj/.dummy
 # excluding the genareted doc files except the doc.config
 doc/*
 !doc/doc.config
