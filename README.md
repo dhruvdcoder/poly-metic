@@ -14,8 +14,11 @@
 
 2. Use the Makefile to build
    1. Targets to build:
+
       Test_Polynomial   : Tests
+
       Demos             : Demos
+
       Doc               : Doxygen Documentation 
 
 * Directory structure
