@@ -19,6 +19,15 @@ Polynomial<FieldT>::Polynomial(std::initializer_list<FieldT> in_list)
 /**
  *
  */
+template<typename FieldT>
+void Polynomial<FieldT>::appendTerm(FieldT coeff)
+{
+   m_coefs.push_back(coeff);
+   ++m_size;
+}
+/**
+ *
+ */
 template <typename FieldT>
 const FieldT& Polynomial<FieldT>::operator[] (size_t i) const 
 {

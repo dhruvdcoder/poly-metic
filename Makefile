@@ -18,8 +18,9 @@ endif
 ifeq ($(strip $(V)),ON)
 CXXFLAGS += -D VERBOSE
 endif
-.PHONY: Test_Polynomial
+.PHONY: Test_Polynomial Demos
 Test_Polynomial : $(BINDIR)/Test_Polynomial
+Demos : $(BINDIR)/demo
 ## test executables rules
 $(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o $(OBJDIR)/Polynomial.o
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@
@@ -34,6 +35,13 @@ $(OBJDIR)/Polynomial.o : Polynomial.cpp Polynomial.hpp
 $(OBJDIR)/Test_Polynomial.o : Test_Polynomial.cpp Polynomial.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+
+# demos
+$(OBJDIR)/demo.o : demo.cpp Polynomial.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BINDIR)/demo : $(OBJDIR)/demo.o $(OBJDIR)/Polynomial.o
+	$(LD) $(LDFLAGS) $^ -o $@
 
 # doc
 #

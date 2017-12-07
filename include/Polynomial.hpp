@@ -46,6 +46,8 @@ public:
       #endif
       swap(*this,rhs);
    }
+   /** \brief Append new terms by pushing back coefficients */
+   void appendTerm(FieldT coeff);
    
    /************** Operators *************/
    /** \brief Operator to fetch coefficients. Checks range.
@@ -116,7 +118,11 @@ public:
    /********** getters **********/
    size_t size() {return m_size;}
    size_t size() const {return m_size;}
-   
+   friend std::ostream& operator<< (std::ostream& os, const Polynomial& p) 
+   {   
+      std::for_each(p.m_coefs.begin(),p.m_coefs.end(), [&](const FieldT& coef) {os<< coef <<" "; });
+      return os; 
+   }
 private:
    std::list<FieldT> m_coefs; /*!< The list of coefficients */
    size_t m_size; /*!< Number of terms in the polynomial */
@@ -131,7 +137,7 @@ private:
    Polynomial& minus();
 
 #ifdef INTRUSIVE_TESTS
-public:
+public: 
    friend class PolynomialTest;
    FRIEND_TEST(PolynomialTest,helper_trim);
    FRIEND_TEST(PolynomialTest,helper_minus);
@@ -160,4 +166,5 @@ template <typename T>
 T minus(T v) {
    return -v;
 }
+
 #endif //_POLYNOMIAL_HPP_

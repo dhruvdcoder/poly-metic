@@ -38,6 +38,17 @@
       ASSERT_DOUBLE_EQ(f[2],c2);
 
    }
+   TEST_F(PolynomialTest,appendTerm){
+      double c0=1,c1=2,c2=3;
+      Polynomial<double> f;
+      f.appendTerm(c0);
+      f.appendTerm(c1);
+      f.appendTerm(c2);
+      ASSERT_DOUBLE_EQ(f[0],c0);
+      ASSERT_DOUBLE_EQ(f[1],c1);
+      ASSERT_DOUBLE_EQ(f[2],c2);
+
+   }
    TEST_F(PolynomialTest,constructor_copy){
       double c0=1,c1=2,c2=3;
       Polynomial<double> p {c0,c1,c2};
