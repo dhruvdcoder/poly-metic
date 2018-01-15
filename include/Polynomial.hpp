@@ -156,6 +156,9 @@ public:
    friend class PolynomialTest;
    FRIEND_TEST(PolynomialTest,helper_trim);
    FRIEND_TEST(PolynomialTest,helper_minus);
+   friend class PolynomialTestMPZ;
+   FRIEND_TEST(PolynomialMPZTest,helper_trim);
+   FRIEND_TEST(PolynomialMPZTest,helper_minus);
 #endif
 
 };

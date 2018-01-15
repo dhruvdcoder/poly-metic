@@ -3,6 +3,7 @@
 #include "../include/Polynomial.hpp"
 #include "../include/PolynomialMultiplicationInterface.hpp"
 #include "../include/PolynomialMultiplicationSimple.hpp"
+#include <gmpxx.h> ///< \todo Create a seperate cpp file for each explicit instantiation of the class
 #include <stdexcept>
 #include <iterator>
 #ifdef VERBOSE
@@ -223,10 +224,16 @@ Polynomial<FieldT> operator*(const Polynomial<FieldT> p1, const Polynomial<Field
 }
 
 /* Explicit instantiation */
+/** \todo create a seperate cpp file for each explicit instantiation of the class 
+ */
 template 
 class Polynomial<double>;
 template
 Polynomial<double> operator*(const Polynomial<double> p1, const Polynomial<double> p2);
+template 
+class Polynomial<mpz_class>;
+template
+Polynomial<mpz_class> operator*(const Polynomial<mpz_class> p1, const Polynomial<mpz_class> p2);
 
 
 

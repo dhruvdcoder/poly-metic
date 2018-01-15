@@ -2,6 +2,8 @@
 #include "../include/Polynomial.hpp"
 #include <algorithm>
 #include <iterator>
+#include <gmpxx.h>
+
 template <typename FieldT>
 Polynomial<FieldT> PolynomialMultiplicationSimple<FieldT>::multiply(const Polynomial<FieldT>& p1, const Polynomial<FieldT>& p2)
 {
@@ -71,3 +73,5 @@ Polynomial<FieldT> PolynomialMultiplicationSimple<FieldT>::multiply(const Polyno
 /** explicit instantiation **/
 template
 class PolynomialMultiplicationSimple<double>;
+template
+class PolynomialMultiplicationSimple<mpz_class>;

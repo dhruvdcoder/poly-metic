@@ -1,5 +1,6 @@
 VPATH=src:obj:include:test
 LIB_GTEST=-lgtest
+LIB_GMPCXX=-lgmpxx -lgmp
 CC = g++
 CFLAGS = -g -Wall -std=c++17 
 CXX=g++
@@ -20,10 +21,15 @@ CXXFLAGS += -D VERBOSE
 endif
 .PHONY: Test_Polynomial Demos
 Test_Polynomial : $(BINDIR)/Test_Polynomial
+Test_PolynomialMPZ : $(BINDIR)/Test_Polynomial_gmpz
+
 Demos : $(BINDIR)/demo
 ## test executables rules
 $(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o $(OBJDIR)/Polynomial.o $(OBJDIR)/PolynomialMultiplicationSimple.o
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@
+## test executables rules
+$(BINDIR)/Test_Polynomial_gmpz : $(OBJDIR)/Test_Polynomial_gmpz.o $(OBJDIR)/Polynomial.o $(OBJDIR)/PolynomialMultiplicationSimple.o
+	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) $(LIB_GMPCXX) -o $@
 
 
 ## Object file rules
@@ -36,6 +42,9 @@ $(OBJDIR)/PolynomialMultiplicationSimple.o : PolynomialMultiplicationSimple.cpp 
 
 #test object files
 $(OBJDIR)/Test_Polynomial.o : Test_Polynomial.cpp Polynomial.hpp PolynomialMultiplicationSimple.hpp PolynomialMultiplicationSimple.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJDIR)/Test_Polynomial_gmpz.o : Test_Polynomial_gmpz.cpp Polynomial.hpp PolynomialMultiplicationSimple.hpp PolynomialMultiplicationSimple.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 

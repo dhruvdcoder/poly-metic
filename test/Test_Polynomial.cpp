@@ -1,5 +1,5 @@
 /*! @file Test_Polynomial.cpp 
- * @brief Contains the tests for the class Polynomial
+ * @brief Contains the tests for the class Polynomial with field type as "double"
  */
 #include "../include/Polynomial.hpp"
 #include "gtest/gtest.h"
