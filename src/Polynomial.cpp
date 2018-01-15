@@ -1,6 +1,8 @@
 /** \brief Implementation of Polynomial and related classes
  */
 #include "../include/Polynomial.hpp"
+#include "../include/PolynomialMultiplicationInterface.hpp"
+#include "../include/PolynomialMultiplicationSimple.hpp"
 #include <stdexcept>
 #include <iterator>
 #ifdef VERBOSE
@@ -172,7 +174,7 @@ Polynomial<FieldT> Polynomial<FieldT>::operator+(Polynomial<FieldT> p2)
    #ifdef VERBOSE
    std::cout<<"this+(value) "<<std::endl;
    #endif
-   p2+=*this;
+   p2+=(*this);
    return std::move(p2);
 }
 /**
@@ -211,10 +213,20 @@ Polynomial<FieldT>& Polynomial<FieldT>::minus() {
    }
    return *this;
 }
+
+template<typename FieldT>
+Polynomial<FieldT> operator*(const Polynomial<FieldT> p1, const Polynomial<FieldT> p2)
+{
+   // chose appropriate algo
+   std::unique_ptr<PolynomialMultiplicationInterface<FieldT>> algo_interface = std::make_unique<PolynomialMultiplicationSimple<FieldT>>();
+   return algo_interface->multiply(p1,p2);
+}
+
 /* Explicit instantiation */
 template 
 class Polynomial<double>;
-
+template
+Polynomial<double> operator*(const Polynomial<double> p1, const Polynomial<double> p2);
 
 
 

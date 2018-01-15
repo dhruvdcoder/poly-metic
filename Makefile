@@ -22,7 +22,7 @@ endif
 Test_Polynomial : $(BINDIR)/Test_Polynomial
 Demos : $(BINDIR)/demo
 ## test executables rules
-$(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o $(OBJDIR)/Polynomial.o
+$(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o $(OBJDIR)/Polynomial.o $(OBJDIR)/PolynomialMultiplicationSimple.o
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@
 
 
@@ -31,8 +31,11 @@ $(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o $(OBJDIR)/Polynomial.o
 $(OBJDIR)/Polynomial.o : Polynomial.cpp Polynomial.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+$(OBJDIR)/PolynomialMultiplicationSimple.o : PolynomialMultiplicationSimple.cpp PolynomialMultiplicationSimple.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
 #test object files
-$(OBJDIR)/Test_Polynomial.o : Test_Polynomial.cpp Polynomial.hpp
+$(OBJDIR)/Test_Polynomial.o : Test_Polynomial.cpp Polynomial.hpp PolynomialMultiplicationSimple.hpp PolynomialMultiplicationSimple.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 
@@ -46,5 +49,5 @@ $(BINDIR)/demo : $(OBJDIR)/demo.o $(OBJDIR)/Polynomial.o
 # doc
 #
 .PHONY: Doc
-Doc : doc/doc.config
+Doc : doc/doc.config include/*.hpp src/*.cpp
 	doxygen doc/doc.config

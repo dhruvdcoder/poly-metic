@@ -288,6 +288,38 @@
       ASSERT_DOUBLE_EQ(fc[2],c2);
 
    }
+
+
+   TEST_F(PolynomialTest,multiply_operator){
+      double c0=1,c1=2,c2=3,c3=4;
+      double a0=4,a1=0,a2=6;
+      Polynomial<double> fc {c0,c1,c2,c3};
+      Polynomial<double> fa {a0,a1,a2};
+      
+      Polynomial<double> f=fa*fc;
+      ASSERT_EQ(f.size(),6);
+
+      
+      ASSERT_DOUBLE_EQ(f[0],c0*a0);
+      ASSERT_DOUBLE_EQ(f[1],a0*c1+a1*c0);
+      ASSERT_DOUBLE_EQ(f[2],a0*c2+a1*c1+a2*c0);
+      ASSERT_DOUBLE_EQ(f[3],a0*c3+a1*c2+a2*c1);
+      ASSERT_DOUBLE_EQ(f[4],a1*c3+a2*c2);
+      ASSERT_DOUBLE_EQ(f[5],a2*c3);
+
+      Polynomial<double> g=fa*fc;
+      ASSERT_EQ(g.size(),6);
+
+      
+      ASSERT_DOUBLE_EQ(g[0],c0*a0);
+      ASSERT_DOUBLE_EQ(g[1],a0*c1+a1*c0);
+      ASSERT_DOUBLE_EQ(g[2],a0*c2+a1*c1+a2*c0);
+      ASSERT_DOUBLE_EQ(g[3],a0*c3+a1*c2+a2*c1);
+      ASSERT_DOUBLE_EQ(g[4],a1*c3+a2*c2);
+      ASSERT_DOUBLE_EQ(g[5],a2*c3);
+
+   }
+
 int main(int argc,char **argv){
    ::testing::InitGoogleTest(&argc,argv);
    return RUN_ALL_TESTS();

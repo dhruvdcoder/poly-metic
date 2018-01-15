@@ -8,6 +8,11 @@
 #ifdef INTRUSIVE_TESTS
 #include "gtest/gtest.h"
 #endif
+
+
+template<typename FieldT>
+class PolynomialMultiplicationInterface;
+
 /*! \class Polynomial
  *  \brief Template class used for polynomial.
  *  \tparam FieldT The field class. The field should support all arithmethic unary and binary operations with values 1 and 0 like, +1, *1, ==1,+0,*0,==0, etc.
@@ -114,6 +119,9 @@ public:
    /** \brief + operator
     */
    Polynomial operator-(Polynomial p2);
+
+
+  
 public: 
    /********** getters **********/
    size_t size() {return m_size;}
@@ -124,6 +132,9 @@ public:
       return os; 
    }
 private:
+   /** \todo Use a general container instead of std::list as the choice of container would depend on
+    * the algorithm class which is used for multiplication and addition.
+    */
    std::list<FieldT> m_coefs; /*!< The list of coefficients */
    size_t m_size; /*!< Number of terms in the polynomial */
 
@@ -135,6 +146,10 @@ private:
 
    /** \brief Flip the sign of all coefs */
    Polynomial& minus();
+
+
+   /************ Friend classes ************/
+   friend class PolynomialMultiplicationInterface<FieldT>;
 
 #ifdef INTRUSIVE_TESTS
 public: 
@@ -166,5 +181,11 @@ template <typename T>
 T minus(T v) {
    return -v;
 }
+
+
+/** \brief The multiplicaion operator. It picks the algorithm with which the Polynomial class is instantiated.
+ */
+template<typename FieldT>
+Polynomial<FieldT> operator*(const Polynomial<FieldT> p1, const Polynomial<FieldT> p2);
 
 #endif //_POLYNOMIAL_HPP_
