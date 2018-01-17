@@ -185,10 +185,11 @@ T minus(T v) {
    return -v;
 }
 
-
 /** \brief The multiplicaion operator. It picks the algorithm with which the Polynomial class is instantiated.
  */
 template<typename FieldT>
-Polynomial<FieldT> operator*(const Polynomial<FieldT> p1, const Polynomial<FieldT> p2);
+Polynomial<FieldT> operator*(const Polynomial<FieldT>& p1, const Polynomial<FieldT>& p2);
+
+
 
 #endif //_POLYNOMIAL_HPP_

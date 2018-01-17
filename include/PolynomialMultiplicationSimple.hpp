@@ -2,7 +2,7 @@
 #ifndef _POLYNOMIALMULTIPLICATIONSIMPLE_HPP_
 #define _POLYNOMIALMULTIPLICATIONSIMPLE_HPP_
 
-#include "PolynomialMultiplicationInterface.hpp"
+#include "../include/PolynomialMultiplicationInterface.hpp"
 
 /** Simple O(n^2) field/ring operations algorithm for univariate polynomial multiplication
  */

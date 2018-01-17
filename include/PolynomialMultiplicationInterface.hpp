@@ -3,8 +3,11 @@
 #ifndef _POLYNOMIALMULTIPLICATIONINTERFACE_HPP_
 #define _POLYNOMIALMULTIPLICATIONINTERFACE_HPP_
 #include <list>
+#include <memory> ///< \todo for uniqe_ptr, can this be done using forward declaration ?
 template <typename FieldT>
 class Polynomial;
+
+
 
 
 /** \brief The abstract base class, providing interface for all the polynomial multiplication algorithms
@@ -28,6 +31,9 @@ class PolynomialMultiplicationInterface
       /** \brief The method which should be overloaded by the derived class to implement its own multiplication algorithm
        */
       virtual Polynomial<FieldT> multiply(const Polynomial<FieldT>& p1, const Polynomial<FieldT>& p2)=0;
+
+      /** \brief Algo picker */
+      static std::unique_ptr<PolynomialMultiplicationInterface<FieldT>> getAppropriateAlgorithm(const Polynomial<FieldT>& p1, const Polynomial<FieldT>& p2);
 };
 
 #endif // _POLYNOMIALMULTIPLICATIONINTERFACE_HPP_

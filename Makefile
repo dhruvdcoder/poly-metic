@@ -19,32 +19,33 @@ endif
 ifeq ($(strip $(V)),ON)
 CXXFLAGS += -D VERBOSE
 endif
-.PHONY: Test_Polynomial Demos
+.PHONY: Test_Polynomial Demos Polynomial Test_PolynomialMPZ
 Test_Polynomial : $(BINDIR)/Test_Polynomial
 Test_PolynomialMPZ : $(BINDIR)/Test_Polynomial_gmpz
+Polynomial : $(OBJDIR)/Polynomial.o
 
 Demos : $(BINDIR)/demo
 ## test executables rules
-$(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o $(OBJDIR)/Polynomial.o $(OBJDIR)/PolynomialMultiplicationSimple.o
+$(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o 
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@
 ## test executables rules
-$(BINDIR)/Test_Polynomial_gmpz : $(OBJDIR)/Test_Polynomial_gmpz.o $(OBJDIR)/Polynomial.o $(OBJDIR)/PolynomialMultiplicationSimple.o
+$(BINDIR)/Test_Polynomial_gmpz : $(OBJDIR)/Test_Polynomial_gmpz.o $(OBJDIR)/Polynomial.o 
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) $(LIB_GMPCXX) -o $@
 
 
 ## Object file rules
 # Unit object files
-$(OBJDIR)/Polynomial.o : Polynomial.cpp Polynomial.hpp
+$(OBJDIR)/Polynomial.o : Polynomial.cpp Polynomial.hpp Polynomial.ipp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJDIR)/PolynomialMultiplicationSimple.o : PolynomialMultiplicationSimple.cpp PolynomialMultiplicationSimple.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 #test object files
-$(OBJDIR)/Test_Polynomial.o : Test_Polynomial.cpp Polynomial.hpp PolynomialMultiplicationSimple.hpp PolynomialMultiplicationSimple.cpp
+$(OBJDIR)/Test_Polynomial.o : Test_Polynomial.cpp Polynomial.ipp 
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJDIR)/Test_Polynomial_gmpz.o : Test_Polynomial_gmpz.cpp Polynomial.hpp PolynomialMultiplicationSimple.hpp PolynomialMultiplicationSimple.cpp
+$(OBJDIR)/Test_Polynomial_gmpz.o : Test_Polynomial_gmpz.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 

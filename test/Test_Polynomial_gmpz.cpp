@@ -2,7 +2,7 @@
  * @brief Contains the tests for the class Polynomial with field type as "mpz_class" which is the integer class from GMP
  */
 #include "../include/Polynomial.hpp"
-#include <gmpxx.h>
+#include "../include/gmpsupport.hpp"
 #include "gtest/gtest.h"
 #include <stdexcept>
 #include <utility>
