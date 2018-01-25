@@ -20,7 +20,15 @@ Polynomial<FieldT>::Polynomial(std::initializer_list<FieldT> in_list)
 {
    trim();
 }
-
+/** 
+ *  \param in_list Initializer list of coefficients. Starting with the x^0
+ */
+template <typename FieldT>
+Polynomial<FieldT>::Polynomial(FieldT c)
+   :m_coefs{c},m_size{1}
+{
+   trim();
+}
 /**
  *
  */
@@ -172,7 +180,7 @@ Polynomial<FieldT> const& Polynomial<FieldT>::operator-=(Polynomial<FieldT>&& p2
 /**
  */
 template <typename FieldT>
-Polynomial<FieldT> Polynomial<FieldT>::operator+(Polynomial<FieldT> p2) 
+Polynomial<FieldT> Polynomial<FieldT>::operator+(Polynomial<FieldT> p2) const
 {
    #ifdef VERBOSE
    std::cout<<"this+(value) "<<std::endl;
@@ -183,7 +191,15 @@ Polynomial<FieldT> Polynomial<FieldT>::operator+(Polynomial<FieldT> p2)
 /**
  */
 template <typename FieldT>
-Polynomial<FieldT> Polynomial<FieldT>::operator-(Polynomial<FieldT> p2) 
+Polynomial<FieldT> Polynomial<FieldT>::operator+(const Polynomial<FieldT>& p2) 
+{
+   return static_cast<const Polynomial<FieldT>*>(this)->operator+(p2);
+}
+
+/**
+ */
+template <typename FieldT>
+Polynomial<FieldT> Polynomial<FieldT>::operator-(Polynomial<FieldT> p2) const 
 {
    #ifdef VERBOSE
    std::cout<<"this-(value) "<<std::endl;
@@ -192,12 +208,22 @@ Polynomial<FieldT> Polynomial<FieldT>::operator-(Polynomial<FieldT> p2)
    temp+=*this;
    return std::move(temp);
 }
+
+/**
+ */
+template <typename FieldT>
+Polynomial<FieldT> Polynomial<FieldT>::operator-(const Polynomial<FieldT>& p2) 
+{
+   return static_cast<const Polynomial<FieldT>*>(this)->operator-(p2);
+}
 /******************* Helpers **********************/
 template <typename FieldT>
 void Polynomial<FieldT>::trim() 
 {
    for(typename std::list<FieldT>::reverse_iterator r_it = m_coefs.rbegin(); r_it != m_coefs.rend(); ) {
-      if ( *r_it == 0) {
+      /* remove trailing zeros but if there is only one coefficient and that is zero then leave it to be a 
+       * zero polynomial */
+      if ( *r_it == 0 && size() >1) {
          typename std::list<FieldT>::reverse_iterator to_delete_it = r_it;
          ++r_it; // reverse iterator decremented
          m_coefs.erase(--to_delete_it.base()); //pre-decrement necessary as base points to an element ahead of rit which would be end() 

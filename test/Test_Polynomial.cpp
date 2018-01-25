@@ -29,7 +29,10 @@
 
    };
 
-
+   TEST_F(PolynomialTest,constructor_default) {
+      Polynomial<double> f;
+      ASSERT_EQ(f.size(),0);
+   }
    TEST_F(PolynomialTest,constructor_init_list){
       double c0=1,c1=2,c2=3;
       Polynomial<double> f {c0,c1,c2};

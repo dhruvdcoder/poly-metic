@@ -8,7 +8,8 @@
 #ifdef INTRUSIVE_TESTS
 #include "gtest/gtest.h"
 #endif
-
+#include <iostream>
+#include <algorithm>
 
 template<typename FieldT>
 class PolynomialMultiplicationInterface;
@@ -33,6 +34,9 @@ public:
    /** \brief Constructor to accept init list.
     */
    Polynomial(std::initializer_list<FieldT>);
+   /** \brief Constructor to accept FieldT as input. Needed to support creation of a polynomial with zero degree.
+    */
+   Polynomial(FieldT c);
    /** \brief defaulted copy constructor
     */
    Polynomial(const Polynomial& rhs) 
@@ -115,11 +119,13 @@ public:
 
    /** \brief + operator
     */
-   Polynomial operator+(Polynomial p2);
-   /** \brief + operator
-    */
-   Polynomial operator-(Polynomial p2);
+   Polynomial operator+(const Polynomial& p2);
+   Polynomial operator+(Polynomial p2) const;
 
+   /** \brief - operator
+    */
+   Polynomial operator-(const Polynomial& p2);
+   Polynomial operator-(Polynomial p2) const;
 
   
 public: 
@@ -128,7 +134,10 @@ public:
    size_t size() const {return m_size;}
    friend std::ostream& operator<< (std::ostream& os, const Polynomial& p) 
    {   
-      std::for_each(p.m_coefs.begin(),p.m_coefs.end(), [&](const FieldT& coef) {os<< coef <<" "; });
+      size_t pow=0;
+      os<<"(";
+      std::for_each(p.m_coefs.begin(),p.m_coefs.end(), [&](const FieldT& coef) {os<< "+ "<<coef <<"x^"<<pow <<" ";++pow; });
+      os<<")";
       return os; 
    }
 private:
