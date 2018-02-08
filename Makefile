@@ -24,6 +24,7 @@ endif
 Test_Polynomial : $(BINDIR)/Test_Polynomial
 Test_PolynomialMPZ : $(BINDIR)/Test_Polynomial_gmpz
 Test_Matrix : $(BINDIR)/Test_Matrix_Operations
+Test_MatrixAlgorithms : $(BINDIR)/Test_MatrixAlgorithms_double
 Polynomial : $(OBJDIR)/Polynomial.o
 
 Demos : $(BINDIR)/demo
@@ -35,6 +36,9 @@ $(BINDIR)/Test_Polynomial_gmpz : $(OBJDIR)/Test_Polynomial_gmpz.o $(OBJDIR)/Poly
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@ $(LIB_GMPCXX)
 
 $(BINDIR)/Test_Matrix_Operations : $(OBJDIR)/Test_Matrix_Operations.o 
+	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@ $(LIB_GMPCXX)
+
+$(BINDIR)/Test_MatrixAlgorithms_double : $(OBJDIR)/Test_MatrixAlgorithms_double.o 
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@ $(LIB_GMPCXX)
 
 ## Object file rules
@@ -53,6 +57,9 @@ $(OBJDIR)/Test_Polynomial_gmpz.o : Test_Polynomial_gmpz.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJDIR)/Test_Matrix_Operations.o : Test_Matrix_Operations.cpp Polynomial.ipp Matrix.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJDIR)/Test_MatrixAlgorithms_double.o : Test_MatrixAlgorithms_double.cpp MatrixAlgorithms_impl.ipp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # demos

@@ -78,7 +78,7 @@ namespace{
       m(1,1)=p4;
 
       
-      Matrix<entryT> m3 = boost::numeric::ublas::prod(m,m);      
+      Matrix<entryT> m3 =prod(m,m);      
       entryT r1 {5,9,16,12,9};
       entryT r2 {32,80,146,160,122,60};
       entryT r3 {8,10,12,10};

@@ -26,4 +26,8 @@ EntryT boost::numeric::ublas::trace(const Matrix<EntryT>& M)
 
 
 
-
+template <typename MatrixT>
+bool boost::numeric::ublas::isSquare(const MatrixT& M)
+{
+   return (M.size1() == M.size2());
+}
