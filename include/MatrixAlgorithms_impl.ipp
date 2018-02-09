@@ -106,7 +106,7 @@ typename MatrixT::value_type det(const MatrixT& M)
       /* second inner term */
       valueT sum = 0;
       for(size_t i =1 ;i<k;++i) {
-         sum += (i%2==0) ? invariants[i-1]*traces[k-i-1] : invariants[i-1]*traces[k-i-1]*(-1);
+         sum += (i%2==0) ? invariants[i-1]*traces[k-i-1] : invariants[i-1]*traces[k-i-1]*(valueT(-1));
       }
       invariants.push_back((traces[k-1] + sum)*(outer_multiplier));
 

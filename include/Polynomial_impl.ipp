@@ -29,6 +29,16 @@ Polynomial<FieldT>::Polynomial(FieldT c)
 {
    trim();
 }
+/** 
+ */
+template <typename FieldT>
+template <typename convertibleToFieldT>
+Polynomial<FieldT>::Polynomial(convertibleToFieldT v)
+   :m_coefs{static_cast<FieldT>(v)},m_size{1}
+{
+   trim();
+}
+
 /**
  *
  */
@@ -83,7 +93,7 @@ Polynomial<FieldT> const & Polynomial<FieldT>::operator=(const Polynomial<FieldT
 template <typename FieldT>
 Polynomial<FieldT> const& Polynomial<FieldT>::operator=(Polynomial<FieldT>&& rhs)
 {
-   /* Provide self assignment protection if the use cases demand. Skipping for now.*/
+   /* Provide self assignment protection if the use caandses demand. Skipping for now.*/
    #ifdef VERBOSE
    std::cout<<"=(&&)"<<std::endl;
    #endif

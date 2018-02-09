@@ -19,12 +19,12 @@ endif
 ifeq ($(strip $(V)),ON)
 CXXFLAGS += -D VERBOSE
 endif
-.PHONY: Test_Polynomial Demos Polynomial
+.PHONY: Test_Polynomial Demos Polynomial Test_MatrixAlgorithms
 # top-leve targets
 Test_Polynomial : $(BINDIR)/Test_Polynomial
 Test_PolynomialMPZ : $(BINDIR)/Test_Polynomial_gmpz
 Test_Matrix : $(BINDIR)/Test_Matrix_Operations
-Test_MatrixAlgorithms : $(BINDIR)/Test_MatrixAlgorithms_double
+Test_MatrixAlgorithms : $(BINDIR)/Test_MatrixAlgorithms_double $(BINDIR)/Test_MatrixAlgorithms_polynomial_double
 Polynomial : $(OBJDIR)/Polynomial.o
 
 Demos : $(BINDIR)/demo
@@ -39,6 +39,9 @@ $(BINDIR)/Test_Matrix_Operations : $(OBJDIR)/Test_Matrix_Operations.o
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@ $(LIB_GMPCXX)
 
 $(BINDIR)/Test_MatrixAlgorithms_double : $(OBJDIR)/Test_MatrixAlgorithms_double.o 
+	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@ $(LIB_GMPCXX)
+
+$(BINDIR)/Test_MatrixAlgorithms_polynomial_double : $(OBJDIR)/Test_MatrixAlgorithms_polynomial_double.o 
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@ $(LIB_GMPCXX)
 
 ## Object file rules
@@ -60,6 +63,9 @@ $(OBJDIR)/Test_Matrix_Operations.o : Test_Matrix_Operations.cpp Polynomial.ipp M
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJDIR)/Test_MatrixAlgorithms_double.o : Test_MatrixAlgorithms_double.cpp MatrixAlgorithms_impl.ipp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJDIR)/Test_MatrixAlgorithms_polynomial_double.o : Test_MatrixAlgorithms_polynomial_double.cpp Polynomial_impl.ipp MatrixAlgorithms_impl.ipp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # demos

@@ -35,10 +35,13 @@ public:
     */
    Polynomial(std::initializer_list<FieldT>);
    /** \brief Constructor to accept FieldT as input. Needed to support creation of a polynomial with zero degree.
+    *  It also acts as implicit converting constructor
     */
    Polynomial(FieldT c);
-   /** \brief defaulted copy constructor
+   /** \brief defaulted copy constructor .
     */
+   template <typename convertibleToFieldT>
+   Polynomial (convertibleToFieldT v);
    Polynomial(const Polynomial& rhs) 
       :m_coefs{rhs.m_coefs},m_size{rhs.m_size}
    {
