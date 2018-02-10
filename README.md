@@ -26,8 +26,10 @@
 	
 	snippets/	: Specific vim snippets. Can be ignore if not using vim and snipmate plugin
 	
-* Dependencies : google-test (if you wish to build the tests), GMP if you wish to use integers, rationals and variable precision reals as the field for the polynomials. 
-
+* Dependencies
+	1. google-test (if you wish to build the tests)
+	2. GMP if you wish to use integers, rationals and variable precision reals as the field for the polynomials. 
+	3. Boost ublas library to work with matrices with polynomial entires. (http://www.boost.org/doc/libs/1_66_0/libs/numeric/ublas/doc/index.html)
 ### Who do I talk to? ###
 
 * Please mail me at dhruvdplayer@gmail.com for questions
