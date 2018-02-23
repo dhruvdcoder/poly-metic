@@ -3,27 +3,18 @@
 
 ### What is this repository for? ###
 
-* Simple implementation of polynomial arithmetic in C++
+* A library for polynomial arithmetic and related algorithms which are used in kinematics of Robot Manipulators. 
 * Version: 1.0
 
 ### How do I get set up? ###
 
-* Setup: 
-
 1. Clone the repo
 
 2. Use the Makefile to build
-   1. Targets to build:
-
-      Test_Polynomial   : Tests
-
-      Demos             : Demos
-
-      Doc               : Doxygen Documentation 
 
 * Directory structure
 
-	include/	: The header files
+	include/	: The header files (.hpp) and template implementation files (.ipp)
 	
 	src/ 		: The cpp/implementation files
 	
@@ -35,8 +26,10 @@
 	
 	snippets/	: Specific vim snippets. Can be ignore if not using vim and snipmate plugin
 	
-* Dependencies : google-test (if you wish to build the tests
-
+* Dependencies
+	1. google-test (if you wish to build the tests)
+	2. GMP if you wish to use integers, rationals and variable precision reals as the field for the polynomials. 
+	3. Boost ublas library to work with matrices with polynomial entires. (http://www.boost.org/doc/libs/1_66_0/libs/numeric/ublas/doc/index.html)
 ### Who do I talk to? ###
 
 * Please mail me at dhruvdplayer@gmail.com for questions
