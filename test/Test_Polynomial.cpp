@@ -5,6 +5,7 @@
 #include "gtest/gtest.h"
 #include <stdexcept>
 #include <utility>
+#include <vector>
 
 
    class PolynomialTest : public ::testing::Test{
@@ -39,7 +40,15 @@
       ASSERT_DOUBLE_EQ(f[0],c0);
       ASSERT_DOUBLE_EQ(f[1],c1);
       ASSERT_DOUBLE_EQ(f[2],c2);
+   }
 
+   TEST_F(PolynomialTest,constructor_iterators){
+      double c0=1,c1=2,c2=3;
+      std::vector<double> c {c0,c1,c2};
+      Polynomial<double> f(c.begin(),c.end()); 
+      ASSERT_DOUBLE_EQ(f[0],c0);
+      ASSERT_DOUBLE_EQ(f[1],c1);
+      ASSERT_DOUBLE_EQ(f[2],c2);
    }
    TEST_F(PolynomialTest,appendTerm){
       double c0=1,c1=2,c2=3;

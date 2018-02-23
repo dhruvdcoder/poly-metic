@@ -37,6 +37,11 @@ public:
    /** \brief Constructor to accept FieldT as input. Needed to support creation of a polynomial with zero degree.
     *  It also acts as implicit converting constructor
     */
+   /** \brief Analogous to std containers, this constructor is provided to create a polynomial from any container which supports forward iterators. 
+    */
+   template <typename InputIt>
+   Polynomial(InputIt first, InputIt last);
+
    Polynomial(FieldT c);
    /** \brief defaulted copy constructor .
     */

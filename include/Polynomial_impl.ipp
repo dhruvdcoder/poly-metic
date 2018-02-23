@@ -20,6 +20,19 @@ Polynomial<FieldT>::Polynomial(std::initializer_list<FieldT> in_list)
 {
    trim();
 }
+/**
+ * Constructs the polynomial coeffs with the contents of the range [first, last)
+ */
+template <typename FieldT>
+template <typename InputIt>
+Polynomial<FieldT>::Polynomial(InputIt first, InputIt last)
+{
+   for(auto it=first;  it != last; ++it) {
+      m_coefs.push_back(*it);
+      m_size++;
+   }
+   trim();
+}
 /** 
  *  \param in_list Initializer list of coefficients. Starting with the x^0
  */

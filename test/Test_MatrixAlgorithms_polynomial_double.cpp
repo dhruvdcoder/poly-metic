@@ -146,6 +146,23 @@ namespace{
       ASSERT_EQ(d,entryT({0,23400.0,-90.0,-3642.99999999999982,0,-46028.5,-11.250,-10120.00}));
 
    }
+   TEST_F(MatrixTest,determinant_large_5_5){
+      /* read in the files created by mathematica */
+      std::string input_file {"test/inputs_MatDim5_PolyDegree5.csv"};
+      std::string result_file {"test/result_MatDim5_PolyDegree5.csv"};
+
+      /* Create the input matrix*/
+      Matrix<entryT> M (5,5);
+      createMatrixWithPolynomialEntries<FieldT>(input_file,&M);
+
+      /* read the expected result from file */
+      entryT expectedResultp= readPolynomialFromFile<FieldT>(result_file);
+
+      /* calculate the det */
+      entryT resultp= det(M);
+      ASSERT_EQ(resultp,expectedResultp);
+
+   }
   }
 int main(int argc,char **argv){
    ::testing::InitGoogleTest(&argc,argv);

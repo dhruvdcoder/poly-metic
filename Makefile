@@ -65,7 +65,7 @@ $(OBJDIR)/Test_Matrix_Operations.o : Test_Matrix_Operations.cpp Polynomial.ipp M
 $(OBJDIR)/Test_MatrixAlgorithms_double.o : Test_MatrixAlgorithms_double.cpp MatrixAlgorithms_impl.ipp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJDIR)/Test_MatrixAlgorithms_polynomial_double.o : Test_MatrixAlgorithms_polynomial_double.cpp Polynomial_impl.ipp MatrixAlgorithms_impl.ipp
+$(OBJDIR)/Test_MatrixAlgorithms_polynomial_double.o : Test_MatrixAlgorithms_polynomial_double.cpp Polynomial_impl.ipp MatrixAlgorithms_impl.ipp Polynomial_testutils.ipp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # demos
