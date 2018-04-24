@@ -4,6 +4,10 @@
 ### What is this repository for? ###
 
 * A library for polynomial arithmetic and related algorithms which are used in kinematics of Robot Manipulators. 
+* Contains the following functionallities at this point:
+1. Univariate polynomial class with addition and multiplication as the supported operations.
+2. Alogorithm to find the determinant of a matrix with polynomial entires. ( tested with 20x20 matrix)
+
 * Version: 1.0
 
 ### How do I get set up? ###
