@@ -12,11 +12,17 @@
 
 * Version: 1.0
 
-### How do I get set up? ###
+### How do I get started? ###
 
-1. Clone the repo
+1. Clone the repository.
 
 2. Use the Makefile to build
+
+	1. Use `$ make Doc` to build the doxygen documentation of the code. To view the generated doc, open the *index.html* in *doc/html/*
+	
+	2. Use `$ make Demos` to build the demos
+	
+	3. Use `$ make Test_MatrixAlgorithms` to build the test for the determinant algorithm. The *test/Test_MatrixAlgorithms_polynomial_double.cpp* shows how one can use the main APIs to find the determinant of a matrix with polynomial entries. 
 
 * Directory structure
 
@@ -33,9 +39,10 @@
 	snippets/	: Specific vim snippets. Can be ignore if not using vim and snipmate plugin
 	
 * Dependencies
-	1. google-test (if you wish to build the tests)
-	2. GMP if you wish to use integers, rationals and variable precision reals as the field for the polynomials. 
-	3. Boost ublas library to work with matrices with polynomial entires. (http://www.boost.org/doc/libs/1_66_0/libs/numeric/ublas/doc/index.html)
+	1. google-test: If you wish to build the tests
+	2. GMP: If you wish to use integers, rationals and variable precision reals as the field for the polynomials. 
+	3. Boost ublas library : To work with matrices with polynomial entires. (http://www.boost.org/doc/libs/1_66_0/libs/numeric/ublas/doc/index.html)
+	4. doxygen: To generate the documentation
 ### Who do I talk to? ###
 
-* Please mail me at dhruvdplayer@gmail.com for questions
+* Please mail me at dhruvdplayer@gmail.com for any kind of issues faced while setting up the repository
