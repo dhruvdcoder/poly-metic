@@ -5,6 +5,13 @@ obj/*
 # excluding the genareted doc files except the doc.config
 doc/*
 !doc/doc.config
-
+# object files
+**.o
 # ignore swap files
-*.swp
+**.swp
+**.swo
+**.swm
+**.swl
+**.swn
+# ignore notice snippet
+notice_c.txt
