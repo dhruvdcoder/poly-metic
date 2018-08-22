@@ -1,20 +1,21 @@
 # README #
 
 
-### What is this repository for? ###
+### What is it? ###
 
-* A library for polynomial arithmetic and related algorithms which are used in kinematics of Robot Manipulators. 
-* Contains the following functionallities at this point:
+* Polymetic is a library for polynomial arithmetic and for arithmetic of matrices with polynomial entries. The need for common subroutines to solve complex computational problems arising in Kinematics of Robot Manipulators, inspired the creation of this library.
+
+* It contains the following functionalities at this point:
 
 	1. Univariate polynomial class with addition and multiplication as the supported operations.
 
-	2. Alogorithm to find the determinant of a matrix with polynomial entires. ( tested with 20x20 matrix)
+	2. Algorithm to find the determinant of a matrix with polynomial entires. ( tested with 20x20 matrix)
 
-* Version: 1.0
+* Version: 1.1
 
 ### How do I get started? ###
 
-1. Clone the repository.
+1. Clone the [repository](https://github.com/dhruvdcoder/poly-metic).
 
 2. Use the Makefile to build
 
