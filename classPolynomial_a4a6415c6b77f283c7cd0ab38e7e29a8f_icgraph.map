@@ -1,0 +1,8 @@
+<map id="Polynomial::size" name="Polynomial::size">
+<area shape="rect" id="node2" href="$classPolynomialMultiplicationSimple.html#a02e2a67e981011c78d160a0b1ab3e127" title="The method which should be overloaded by the derived class to implement its own multiplication algori..." alt="" coords="177,5,351,46"/>
+<area shape="rect" id="node3" href="$classPolynomial.html#a5f847c79b1aa23fa6028e6bbd1a57ff2" title="The += operator for polynomials. " alt="" coords="400,121,568,148"/>
+<area shape="rect" id="node4" href="$Polynomial__testutils_8ipp.html#a2f7cec8ca2b877703aa146e17fbd34cf" title="operator==" alt="" coords="217,121,311,148"/>
+<area shape="rect" id="node5" href="$Test__Polynomial_8cpp.html#ace9bcb5bf37019c4839dce5febb36bba" title="TEST_F" alt="" coords="227,172,301,199"/>
+<area shape="rect" id="node6" href="$classPolynomial.html#a3fffcde8fb52b106f8159e14ccec6223" title="Use to maintain the invariant 1. " alt="" coords="205,223,323,249"/>
+<area shape="rect" id="node7" href="$classPolynomial.html#af6bcc321eb60be978e3e69ffaac4e542" title="defaulted copy constructor . " alt="" coords="402,223,566,249"/>
+</map>

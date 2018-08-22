@@ -1,0 +1,6 @@
+<map id="det" name="det">
+<area shape="rect" id="node2" href="$namespaceboost_1_1numeric_1_1ublas.html#ada3b7245b864378a247d17d8fef86c18" title="Convinience function to check if a matrix is square or not. " alt="" coords="643,15,799,57"/>
+<area shape="rect" id="node3" href="$namespaceanonymous__namespace_02MatrixAlgorithms__impl_8ipp_03.html#a92ea2d20f284caa8b4bee7fba964ab19" title="anonymous_namespace\l\{MatrixAlgorithms_impl\l::ipp\}::trace" alt="" coords="96,23,275,79"/>
+<area shape="rect" id="node4" href="$MatrixAlgorithms__impl_8ipp.html#aedcf8bbaf3389d5eba3e34aeefc68016" title="Finds the M^n for a square matrix M. " alt="" coords="323,80,368,107"/>
+<area shape="rect" id="node5" href="$namespaceanonymous__namespace_02MatrixAlgorithms__impl_8ipp_03.html#a994396695fd8a43510395ed224b70738" title="anonymous_namespace\l\{MatrixAlgorithms_impl\l::ipp\}::exp_by_squaring" alt="" coords="416,73,595,129"/>
+</map>

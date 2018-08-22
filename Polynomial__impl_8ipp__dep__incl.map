@@ -1,0 +1,8 @@
+<map id="include/Polynomial_impl.ipp" name="include/Polynomial_impl.ipp">
+<area shape="rect" id="node2" href="$Polynomial_8ipp.html" title="The single header file to include all the functionallities associated with the Polynomial class..." alt="" coords="387,96,549,123"/>
+<area shape="rect" id="node3" href="$boost__matrix_8cpp.html" title="src/boost_matrix.cpp" alt="" coords="5,179,160,205"/>
+<area shape="rect" id="node4" href="$Polynomial_8cpp.html" title="The file contains the explicit intantiations of the template class Polynomial. " alt="" coords="185,179,327,205"/>
+<area shape="rect" id="node5" href="$Test__Matrix__Operations_8cpp.html" title="Contains the tests for the matrix class with polynomial entries and arithmetic operations on that..." alt="" coords="351,179,584,205"/>
+<area shape="rect" id="node6" href="$Test__MatrixAlgorithms__polynomial__double_8cpp.html" title="test/Test_MatrixAlgorithms\l_polynomial_double.cpp" alt="" coords="609,171,804,213"/>
+<area shape="rect" id="node7" href="$Test__Polynomial_8cpp.html" title="Contains the tests for the class Polynomial with field type as &quot;double&quot;. " alt="" coords="829,179,1011,205"/>
+</map>

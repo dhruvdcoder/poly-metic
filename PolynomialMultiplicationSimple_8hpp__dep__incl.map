@@ -1,0 +1,13 @@
+<map id="include/PolynomialMultiplicationSimple.hpp" name="include/PolynomialMultiplicationSimple.hpp">
+<area shape="rect" id="node2" href="$PolynomialMultiplicationInterface__impl_8ipp.html" title="include/PolynomialMultiplication\lInterface_impl.ipp" alt="" coords="232,97,455,138"/>
+<area shape="rect" id="node10" href="$PolynomialMultiplicationSimple_8ipp.html" title="Contains implementation of the template class PolynomialMultiplicationSimple. " alt="" coords="480,97,703,138"/>
+<area shape="rect" id="node11" href="$gmpsupport_8hpp.html" title="The file contains explicit template declarations for gmp types as the template argument for polynomia..." alt="" coords="729,104,903,131"/>
+<area shape="rect" id="node3" href="$PolynomialMultiplication_8ipp.html" title="include/PolynomialMultiplication.ipp" alt="" coords="345,195,591,221"/>
+<area shape="rect" id="node4" href="$Polynomial_8ipp.html" title="The single header file to include all the functionallities associated with the Polynomial class..." alt="" coords="387,277,549,304"/>
+<area shape="rect" id="node5" href="$boost__matrix_8cpp.html" title="src/boost_matrix.cpp" alt="" coords="5,360,160,387"/>
+<area shape="rect" id="node6" href="$Polynomial_8cpp.html" title="The file contains the explicit intantiations of the template class Polynomial. " alt="" coords="185,360,327,387"/>
+<area shape="rect" id="node7" href="$Test__Matrix__Operations_8cpp.html" title="Contains the tests for the matrix class with polynomial entries and arithmetic operations on that..." alt="" coords="351,360,584,387"/>
+<area shape="rect" id="node8" href="$Test__MatrixAlgorithms__polynomial__double_8cpp.html" title="test/Test_MatrixAlgorithms\l_polynomial_double.cpp" alt="" coords="609,353,804,394"/>
+<area shape="rect" id="node9" href="$Test__Polynomial_8cpp.html" title="Contains the tests for the class Polynomial with field type as &quot;double&quot;. " alt="" coords="829,360,1011,387"/>
+<area shape="rect" id="node12" href="$Test__Polynomial__gmpz_8cpp.html" title="Contains the tests for the class Polynomial with field type as &quot;mpz_class&quot; which is the integer class..." alt="" coords="739,187,892,229"/>
+</map>

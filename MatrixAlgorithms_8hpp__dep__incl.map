@@ -1,0 +1,6 @@
+<map id="include/MatrixAlgorithms.hpp" name="include/MatrixAlgorithms.hpp">
+<area shape="rect" id="node2" href="$MatrixAlgorithms__impl_8ipp.html" title="Implements the template classes and functions in MatrixAlgorithms.hpp. " alt="" coords="121,81,303,122"/>
+<area shape="rect" id="node3" href="$MatrixAlgorithms_8ipp.html" title="Single header file which sould be included to access all the user defined algorithms which work on Ma..." alt="" coords="111,171,313,197"/>
+<area shape="rect" id="node4" href="$Test__MatrixAlgorithms__double_8cpp.html" title="Contains the tests for the external/user defined functions like exp(), det(), etc,. on Matrix with double entries. " alt="" coords="5,246,200,287"/>
+<area shape="rect" id="node5" href="$Test__MatrixAlgorithms__polynomial__double_8cpp.html" title="test/Test_MatrixAlgorithms\l_polynomial_double.cpp" alt="" coords="225,246,420,287"/>
+</map>

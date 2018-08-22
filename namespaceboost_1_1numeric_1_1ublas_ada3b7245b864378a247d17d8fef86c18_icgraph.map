@@ -1,0 +1,8 @@
+<map id="boost::numeric::ublas::isSquare" name="boost::numeric::ublas::isSquare">
+<area shape="rect" id="node2" href="$MatrixAlgorithms__impl_8ipp.html#ac7850b0032bd925abc29f4e0eec632e9" title="Finds the determinant of a square matrix. " alt="" coords="757,64,800,91"/>
+<area shape="rect" id="node5" href="$namespaceanonymous__namespace_02MatrixAlgorithms__impl_8ipp_03.html#a994396695fd8a43510395ed224b70738" title="anonymous_namespace\l\{MatrixAlgorithms_impl\l::ipp\}::exp_by_squaring" alt="" coords="211,81,389,137"/>
+<area shape="rect" id="node7" href="$namespaceanonymous__namespace_02MatrixAlgorithms__impl_8ipp_03.html#a92ea2d20f284caa8b4bee7fba964ab19" title="anonymous_namespace\l\{MatrixAlgorithms_impl\l::ipp\}::trace" alt="" coords="531,81,709,137"/>
+<area shape="rect" id="node3" href="$namespaceanonymous__namespace_02Test__MatrixAlgorithms__double_8cpp_03.html#a66b087873a9cb13a1751bca817c95da2" title="anonymous_namespace\l\{Test_MatrixAlgorithms\l_double::cpp\}::TEST_F" alt="" coords="851,5,1029,61"/>
+<area shape="rect" id="node4" href="$namespaceanonymous__namespace_02Test__MatrixAlgorithms__polynomial__double_8cpp_03.html#aac8161cc69ac72e9268ad75c1dbebbb6" title="anonymous_namespace\l\{Test_MatrixAlgorithms\l_polynomial_double::cpp\}\l::TEST_F" alt="" coords="849,86,1031,157"/>
+<area shape="rect" id="node6" href="$MatrixAlgorithms__impl_8ipp.html#aedcf8bbaf3389d5eba3e34aeefc68016" title="Finds the M^n for a square matrix M. " alt="" coords="437,96,483,123"/>
+</map>

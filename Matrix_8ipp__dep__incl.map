@@ -1,0 +1,6 @@
+<map id="include/Matrix.ipp" name="include/Matrix.ipp">
+<area shape="rect" id="node2" href="$Polynomial__testutils_8ipp.html" title="Header for the utility functions like == operator for polynomials. " alt="" coords="5,88,203,115"/>
+<area shape="rect" id="node3" href="$Test__MatrixAlgorithms__polynomial__double_8cpp.html" title="test/Test_MatrixAlgorithms\l_polynomial_double.cpp" alt="" coords="74,171,269,213"/>
+<area shape="rect" id="node4" href="$Test__Matrix__Operations_8cpp.html" title="Contains the tests for the matrix class with polynomial entries and arithmetic operations on that..." alt="" coords="278,88,511,115"/>
+<area shape="rect" id="node5" href="$Test__MatrixAlgorithms__double_8cpp.html" title="Contains the tests for the external/user defined functions like exp(), det(), etc,. on Matrix with double entries. " alt="" coords="535,81,731,122"/>
+</map>

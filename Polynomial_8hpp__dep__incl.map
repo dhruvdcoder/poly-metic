@@ -1,0 +1,16 @@
+<map id="include/Polynomial.hpp" name="include/Polynomial.hpp">
+<area shape="rect" id="node2" href="$Polynomial__impl_8ipp.html" title="Implementation of Polynomial template class. Does not include implementation of the * operator..." alt="" coords="46,171,185,213"/>
+<area shape="rect" id="node9" href="$PolynomialMultiplicationInterface__impl_8ipp.html" title="include/PolynomialMultiplication\lInterface_impl.ipp" alt="" coords="140,81,363,122"/>
+<area shape="rect" id="node11" href="$PolynomialMultiplicationSimple_8ipp.html" title="Contains implementation of the template class PolynomialMultiplicationSimple. " alt="" coords="388,81,611,122"/>
+<area shape="rect" id="node12" href="$demo_8cpp.html" title="src/demo.cpp" alt="" coords="636,88,745,115"/>
+<area shape="rect" id="node13" href="$gmpsupport_8hpp.html" title="The file contains explicit template declarations for gmp types as the template argument for polynomia..." alt="" coords="770,88,944,115"/>
+<area shape="rect" id="node14" href="$Test__Polynomial__gmpz_8cpp.html" title="Contains the tests for the class Polynomial with field type as &quot;mpz_class&quot; which is the integer class..." alt="" coords="811,171,964,213"/>
+<area shape="rect" id="node15" href="$Polynomial__testutils_8ipp.html" title="Header for the utility functions like == operator for polynomials. " alt="" coords="825,261,1023,288"/>
+<area shape="rect" id="node3" href="$Polynomial_8ipp.html" title="The single header file to include all the functionallities associated with the Polynomial class..." alt="" coords="280,261,443,288"/>
+<area shape="rect" id="node4" href="$boost__matrix_8cpp.html" title="src/boost_matrix.cpp" alt="" coords="5,344,160,371"/>
+<area shape="rect" id="node5" href="$Polynomial_8cpp.html" title="The file contains the explicit intantiations of the template class Polynomial. " alt="" coords="185,344,327,371"/>
+<area shape="rect" id="node6" href="$Test__Matrix__Operations_8cpp.html" title="Contains the tests for the matrix class with polynomial entries and arithmetic operations on that..." alt="" coords="351,344,584,371"/>
+<area shape="rect" id="node7" href="$Test__MatrixAlgorithms__polynomial__double_8cpp.html" title="test/Test_MatrixAlgorithms\l_polynomial_double.cpp" alt="" coords="819,337,1015,378"/>
+<area shape="rect" id="node8" href="$Test__Polynomial_8cpp.html" title="Contains the tests for the class Polynomial with field type as &quot;double&quot;. " alt="" coords="609,344,791,371"/>
+<area shape="rect" id="node10" href="$PolynomialMultiplication_8ipp.html" title="include/PolynomialMultiplication.ipp" alt="" coords="238,179,484,205"/>
+</map>
