@@ -73,7 +73,7 @@ $(OBJDIR)/demo.o : demo.cpp Polynomial.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(BINDIR)/demo : $(OBJDIR)/demo.o $(OBJDIR)/Polynomial.o
-	$(LD) $(LDFLAGS) $^ -o $@
+	$(LD) $(LDFLAGS) $^ -o $@ $(LIB_GMPCXX)
 
 # doc
 #

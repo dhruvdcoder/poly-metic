@@ -163,6 +163,42 @@ namespace{
       ASSERT_EQ(resultp,expectedResultp);
 
    }
+   TEST_F(MatrixTest,determinant_large_5_10){
+      /* read in the files created by mathematica */
+      std::string input_file {"test/inputs_MatDim5_PolyDegree10.csv"};
+      std::string result_file {"test/result_MatDim5_PolyDegree10.csv"};
+
+      /* Create the input matrix*/
+      Matrix<entryT> M (5,5);
+      createMatrixWithPolynomialEntries<FieldT>(input_file,&M);
+
+      /* read the expected result from file */
+      entryT expectedResultp= readPolynomialFromFile<FieldT>(result_file);
+
+      /* calculate the det */
+      entryT resultp= det(M);
+      ASSERT_EQ(resultp,expectedResultp);
+
+   }
+   TEST_F(MatrixTest,determinant_large_10_10){
+      /* read in the files created by mathematica */
+      std::string input_file {"test/inputs_MatDim10_PolyDegree10.csv"};
+      std::string result_file {"test/result_MatDim10_PolyDegree10.csv"};
+
+      /* Create the input matrix*/
+      using f=long double;
+      using e = Polynomial<f>
+      Matrix<entryT> M (10,10);
+      createMatrixWithPolynomialEntries<FieldT>(input_file,&M);
+
+      /* read the expected result from file */
+      entryT expectedResultp= readPolynomialFromFile<FieldT>(result_file);
+
+      /* calculate the det */
+      entryT resultp= det(M);
+      ASSERT_EQ(resultp,expectedResultp);
+
+   }
   }
 int main(int argc,char **argv){
    ::testing::InitGoogleTest(&argc,argv);

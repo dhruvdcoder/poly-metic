@@ -267,5 +267,4 @@ Polynomial<FieldT>& Polynomial<FieldT>::minus() {
 }
 
 
-
 #endif// _POLYNOMIAL_IPP_ 
