@@ -15,3 +15,6 @@ doc/*
 **.swn
 # ignore notice snippet
 notice_c.txt
+# ignore logo file
+polymetic-logo-wobg.png
+polymetic-logo-wobg-small.png
