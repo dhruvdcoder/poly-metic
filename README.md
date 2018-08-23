@@ -1,5 +1,5 @@
 
-# Polymetic #
+# [Polymetic](https://github.com/dhruvdcoder/poly-metic) #
 
 ![Logo](https://drive.google.com/uc?export=view&id=1a7CVxnmZlBA91XM9OUzl_mnyUoBiPKg5)
 
