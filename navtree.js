@@ -1,6 +1,6 @@
 var NAVTREE =
 [
-  [ "Polynomial Arithmetic", "index.html", [
+  [ "Polymetic", "index.html", [
     [ "Todo List", "todo.html", null ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],

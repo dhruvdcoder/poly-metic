@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Polynomial Arithmetic: Main Page</title>
+<title>Polymetic: Main Page</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Polynomial Arithmetic
+   <div id="projectname">Polymetic
    &#160;<span id="projectnumber">1.1</span>
    </div>
    <div id="projectbrief">A c++ library for polynomial and matrix arithmetic, focused on applications in Kinematics.</div>
@@ -99,15 +99,61 @@ $(document).ready(function(){initNavTree('index.html','');});
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Polynomial Arithmetic Documentation</div>  </div>
+<div class="title">Polymetic Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p><a href="https://opensource.org/licenses/Apache-2.0">![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)</a></p>
+<h3>What is it?</h3>
+<p>Polymetic is a library for polynomial arithmetic and for arithmetic of matrices with polynomial entries. The need for common subroutines to solve complex computational problems arising in Kinematics of Robot Manipulators inspired the creation of this library.</p>
+<p>Created by <a href="dhruveshp.com">Dhruvesh Patel</a> under the guidance of <a href="https://ed.iitm.ac.in/~sandipan/">Dr. Bandyopadhyay</a> at Robotics Lab, IIT Madras, the project is not under active development currently. However, if you wish to contribute or maintain the project, please contact us.</p>
+<ul>
+<li>It contains the following functionalities at this point:<ol type="1">
+<li>Univariate polynomial class with addition and multiplication as the supported operations.</li>
+<li>Algorithm to find the determinant of a matrix with polynomial entires. ( tested with 20x20 matrix)</li>
+</ol>
+</li>
+<li>Version: 1.1</li>
+</ul>
+<h3>How do I get started?</h3>
+<ol type="1">
+<li>Clone the <a href="https://github.com/dhruvdcoder/poly-metic">repository</a>.</li>
+<li>Install the <a href="#Dependencies">dependencies</a></li>
+<li>Use the Makefile to build<ol type="a">
+<li>Use <code>$ make Doc</code> to build the doxygen documentation of the code. To view the generated doc, open the <em>index.html</em> in <em>doc/html/</em></li>
+<li>Use <code>$ make Demos</code> to build the demos</li>
+<li>Use <code>$ make Test_MatrixAlgorithms</code> to build the test for the determinant algorithm. The <em><a class="el" href="Test__MatrixAlgorithms__polynomial__double_8cpp.html">test/Test_MatrixAlgorithms_polynomial_double.cpp</a></em> shows how one can use the main APIs to find the determinant of a matrix with polynomial entries.</li>
+</ol>
+</li>
+</ol>
+<h3>Directory structure</h3>
+<pre class="fragment">include/    : The header files (.hpp) and template implementation files (.ipp)
+
+src/        : The cpp/implementation files
+
+doc/        : The doxygen configureation files.
+
+bin/        : The files in this directory are ignore by git. Used to keep the executables
+
+obj/        : The files in this directory are ignore by git. Used to keep .o and other temporary files
+
+snippets/   : Specific vim snippets. Can be ignore if not using vim and snipmate plugin
+</pre><h3>Dependencies</h3>
+<ol type="1">
+<li>google-test: If you wish to build the tests</li>
+<li>GMP: If you wish to use integers, rationals and variable precision reals as the field for the polynomials.</li>
+<li>Boost ublas library : To work with matrices with polynomial entires. (<a href="http://www.boost.org/doc/libs/1_66_0/libs/numeric/ublas/doc/index.html">http://www.boost.org/doc/libs/1_66_0/libs/numeric/ublas/doc/index.html</a>)</li>
+<li>doxygen: To generate the documentation</li>
+</ol>
+<h3>Who do I talk to?</h3>
+<ul>
+<li>Please mail me at <a href="#" onclick="location.href='mai'+'lto:'+'dhr'+'uv'+'dpl'+'ay'+'er@'+'gm'+'ail'+'.c'+'om'; return false;">dhruv<span style="display: none;">.nosp@m.</span>dpla<span style="display: none;">.nosp@m.</span>yer@g<span style="display: none;">.nosp@m.</span>mail<span style="display: none;">.nosp@m.</span>.com</a> for any kind of issues faced while setting up the repository </li>
+</ul>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Aug 23 2018 01:57:00 for Polynomial Arithmetic by
+    <li class="footer">Generated on Thu Aug 23 2018 09:30:41 for Polymetic by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
