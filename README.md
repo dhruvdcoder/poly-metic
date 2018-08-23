@@ -30,7 +30,7 @@ Created by [Dhruvesh Patel](dhruveshp.com) under the guidance of [Dr. Bandyopadh
 	
 	3. Use `$ make Test_MatrixAlgorithms` to build the test for the determinant algorithm. The *test/Test_MatrixAlgorithms_polynomial_double.cpp* shows how one can use the main APIs to find the determinant of a matrix with polynomial entries. 
 
-4. See [online documentation](https://dhruveshp.com/poly-metic) for exhaustive code documentation.
+4. See [online documentation](http://dhruveshp.com/poly-metic) for exhaustive code documentation.
 
 ### Directory structure ###
 
