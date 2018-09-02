@@ -87,12 +87,16 @@ FieldT stringToField(const std::string& s);
 /** \brief Specialization for double as return type.
  */
 template<>
-double stringToField(const std::string& s) 
+double stringToField(const std::string& s)
 {
    return std::stod(s);
 }
 
-
+template<>
+long double stringToField(const std::string& s)
+{
+   return std::stold(s);
+}
 /** \brief Read the input and output files and create the matrix of polynomials
  */ 
 template<typename FieldT>
@@ -128,6 +132,42 @@ template<typename FieldT>
       entryNumber++;
    }
 }
+
+/** \brief Read the input file and create the matrix of polynomials dynamically without depending on the file name
+ *  to give information about the dimensions
+ */
+template<typename FieldT>
+ void readMatrixWithPolynomialEntries(const std::string& inputfile,Matrix<Polynomial<FieldT>>* pmat) {
+   if(pmat==nullptr) throw std::invalid_argument("createMatrixWithPolynomialEnties: Pointer to matrix is null");
+   size_t matrixDim = pmat->size1();
+   using EntryT = Polynomial<FieldT>;
+
+   /* entries in the file are linearly indexed in row major order */
+   std::ifstream file (inputfile);
+   if(!file.is_open()) throw std::invalid_argument("createMatrixWithPolynomialEntries: Failed to open inputfile");
+   size_t rowNumber=0;
+   for(size_t entryNumber =0; entryNumber < matrixDim*matrixDim ; ) {
+      for (size_t columnNumber=0;columnNumber < matrixDim;++columnNumber) {
+         std::string line;
+         getline(file,line); // read one line, ie coeffs of one polynomial 
+         std::stringstream linestream(line);
+
+         /* read all entries of a line */
+         EntryT ijth_polynomial;
+         for (std::string coef;getline(linestream,coef,',');) {
+            ijth_polynomial.appendTerm(stringToField<FieldT>(coef));
+         }
+         /* Place the polynomial in the matrix */
+         (*pmat)(rowNumber,columnNumber)=ijth_polynomial;
+         ++entryNumber;
+      }
+      rowNumber++;
+      entryNumber++;
+   }
+}
+
+
+
 
 template <typename FieldT>
 Polynomial<FieldT> readPolynomialFromFile(const std::string& resultfile)

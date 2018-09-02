@@ -19,7 +19,7 @@ endif
 ifeq ($(strip $(V)),ON)
 CXXFLAGS += -D VERBOSE
 endif
-.PHONY: Test_Polynomial Demos Polynomial Test_MatrixAlgorithms
+.PHONY: Test_Polynomial Demos Polynomial Test_MatrixAlgorithms Det
 # top-leve targets
 Test_Polynomial : $(BINDIR)/Test_Polynomial
 Test_PolynomialMPZ : $(BINDIR)/Test_Polynomial_gmpz
@@ -28,6 +28,8 @@ Test_MatrixAlgorithms : $(BINDIR)/Test_MatrixAlgorithms_double $(BINDIR)/Test_Ma
 Polynomial : $(OBJDIR)/Polynomial.o
 
 Demos : $(BINDIR)/demo
+
+Det : $(BINDIR)/det
 ## test executables rules
 $(BINDIR)/Test_Polynomial : $(OBJDIR)/Test_Polynomial.o 
 	$(LD) $(LDFLAGS) $^ $(LIB_GTEST) -o $@
@@ -75,6 +77,11 @@ $(OBJDIR)/demo.o : demo.cpp Polynomial.hpp
 $(BINDIR)/demo : $(OBJDIR)/demo.o $(OBJDIR)/Polynomial.o
 	$(LD) $(LDFLAGS) $^ -o $@ $(LIB_GMPCXX)
 
+$(OBJDIR)/det.o : det.cpp MatrixAlgorithms_impl.ipp Matrix.ipp Polynomial_testutils.ipp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(BINDIR)/det : $(OBJDIR)/det.o $(OBJDIR)/Polynomial.o
+	$(LD) $(LDFLAGS) $^ -o $@ $(LIB_GMPCXX)
 # doc
 #
 .PHONY: Doc
