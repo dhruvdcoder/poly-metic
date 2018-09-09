@@ -201,7 +201,7 @@ namespace{
 
       /* Create the input matrix*/
       using f=long double;
-      using e = Polynomial<f>
+      using e = Polynomial<f>;
       Matrix<entryT> M (10,10);
       createMatrixWithPolynomialEntries<FieldT>(input_file,&M);
 

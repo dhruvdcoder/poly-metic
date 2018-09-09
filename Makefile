@@ -19,21 +19,28 @@ endif
 ifeq ($(strip $(V)),ON)
 CXXFLAGS += -D VERBOSE
 endif
-.PHONY: Test_Polynomial Demos Polynomial Test_MatrixAlgorithms Det Tests all
+.PHONY: all
+all: Demos Det Tests
 # top-leve targets
+.PHONY: Test_Polynomial
 Test_Polynomial : $(BINDIR)/Test_Polynomial
+.PHONY: Test_PolynomialMPZ
 Test_PolynomialMPZ : $(BINDIR)/Test_Polynomial_gmpz
+.PHONY: Test_Matrix
 Test_Matrix : $(BINDIR)/Test_Matrix_Operations
+.PHONY: Test_MatrixAlgorithms
 Test_MatrixAlgorithms : $(BINDIR)/Test_MatrixAlgorithms_double $(BINDIR)/Test_MatrixAlgorithms_polynomial_double
+.PHONY: Polynomial
 Polynomial : $(OBJDIR)/Polynomial.o
-
+.PHONY: Demos
 Demos : $(BINDIR)/demo
 
+.PHONY: Det
 Det : $(BINDIR)/det
 
+.PHONY: Tests
 Tests: Test_Polynomial Test_PolynomialMPZ Test_Matrix Test_MatrixAlgorithms
 
-all: Demos Det Tests
 
 .DEFAULT_GOAL := all
 
