@@ -6,8 +6,8 @@ sudo apt-get install cmake # install cmake
 
 cd /usr/src/gtest
 
-sudo cmake CMakeLists.txt
-
+sudo cmake -DBUILD_SHARED_LIBS=ON CMakeLists.txt
+ 
 sudo make
 
 sudo cp *.a /usr/lib
