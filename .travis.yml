@@ -18,3 +18,4 @@ install:
 script:
   - make all T=ON V=ON
   - bin/demo
+  - bin/Test_MatrixAlgorithms_double
