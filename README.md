@@ -3,8 +3,7 @@
 
 ![Logo](https://drive.google.com/uc?export=view&id=1a7CVxnmZlBA91XM9OUzl_mnyUoBiPKg5)
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)        [![Build Status](https://travis-ci.org/dhruvdcoder/poly-metic.svg?branch=master)](https://travis-ci.org/dhruvdcoder/poly-metic)
 ### What is it? ###
 
 Polymetic is a library for polynomial arithmetic and for arithmetic of matrices with polynomial entries. The need for common subroutines to solve complex computational problems arising in Kinematics of Robot Manipulators inspired the creation of this library. 
