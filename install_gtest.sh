@@ -11,5 +11,5 @@ cd ..
 sudo rm -rf build
 
 sudo mkdir /usr/local/lib/googletest
-sudo ln -s /usr/lib/libgtest.a /usr/local/lib/googletest/libgtest.a
-sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/googletest/libgtest_main.a
+sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
+sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
