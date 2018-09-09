@@ -13,6 +13,7 @@ install:
   - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
   - chmod +x install_gtest.sh
   - ./install_gtest.sh
+  - sudo apt-get install libboost-dev
 
 script:
   - make all T=ON V=ON
