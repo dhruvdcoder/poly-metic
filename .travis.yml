@@ -16,6 +16,7 @@ install:
   - sudo apt-get install libboost-dev
 
 script:
-  - make all T=ON V=ON
+  - make all T=ON V=OFF
   - bin/demo
-  - bin/Test_MatrixAlgorithms_double
+  - chmod +x test.sh
+  - ./test.sh
