@@ -10,8 +10,8 @@ sudo cmake -DBUILD_SHARED_LIBS=ON CMakeLists.txt
  
 sudo make
 
-sudo cp *.a /usr/lib
+sudo cp *.so /usr/lib
 
-sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
+sudo ln -s /usr/lib/libgtest.so /usr/local/lib/libgtest.so
 
-sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
+sudo ln -s /usr/lib/libgtest_main.so /usr/local/lib/libgtest_main.so
